@@ -1,4 +1,5 @@
 website link: https://soctopus2327.github.io/DEV21SPRINT-SafeSteps/
+
 presentation link: https://www.canva.com/design/DAGIwWyswUQ/nipRJ6W4I5ZJ5dAMeKON1Q/edit?utm_content=DAGIwWyswUQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 SafeSteps is designed to enhance the safety and experience of travelers in New Delhi. Our website offers interactive safety maps highlighting unsafe areas and safe travel routes, real-time alerts for high-risk crime zones, and cultural guidelines for decorum at religious sites. It also provides emergency assistance contacts, safe travel recommendations, personalized routes, community reports, local insights, multilingual support, and offline access to crucial information.
