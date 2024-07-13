@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SafeSteps</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.PNG">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -11,17 +12,19 @@
 <body>
     <div class="container">
         <div class="topnav">
-            <a href="index.html">Home</a>
+            <a class='active' href="index.html">Home</a>
             <a href="liveMap.html">Live Map</a>
-            <a class='active' href="contact.html">Contact</a>
+            <a href="contact.html">Contact</a>
             <a href="about.html">About</a>
             <image id="logo" src="images/logo.PNG" width="40">
         </div>
         <div class="banner">
-            <div class="image img-banner">
-                <image src="images/livemap.jpg" width="100%">
-                <div class="img-cent-text">Live Map</div>
-            </div>
+            <a href="liveMap.html">
+                <div class="image img-banner">
+                    <image src="images/livemap.jpg" width="100%">
+                    <div class="img-cent-text">Live Map</div>
+                </div>
+            </a>
         </div>
 
         <div class="table">
@@ -30,7 +33,7 @@
                   <image src="images/yourStory.jpeg"width="100%" >
                 </a>
             </div>
-            <div class="image">
+            <div class="image" id="culture">
                 <a href="cultural.html">
                     <image src="images/_.jpeg" width="100%">
                 </a>
@@ -44,6 +47,30 @@
         </div>
 
     </div>
+
+    <footer height="50px">
+
+        <div class="footer-logo">
+            <img src="images/logo.PNG" width="40">
+            <div id="footer-slogan"><pre> Navigate New Delhi with Confidence: Safety, Awareness, Respect!</pre> </div>
+        </div>
+
+        <div class="icons">
+            <a href="https://x.com/home">
+                <img class="icon" src="images/twitter.png">    
+            </a>
+            <a href="https://www.instagram.com/">
+                <img class="icon" src="images/insta.png">
+                
+            </a>
+            <a href="https://www.linkedin.com/feed/">
+                <img class="icon" src="images/linkedin.png">  
+            </a>
+        
+        </div>
+
+    </footer>
+      
 
 </body>
 </html>
