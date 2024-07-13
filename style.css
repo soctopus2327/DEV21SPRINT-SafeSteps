@@ -196,40 +196,40 @@ footer{
     padding: 20px;
     background-color: rgba(86, 0, 86, 0.715);
     overflow: hidden;
-  }
-  
-  .icons{
+}
+
+.icons{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex: 0 0 40%;
-  }
-  
-  .icon {
+}
+
+.icon {
     margin-left: 50px;
     width: 30px; 
     height: 30px; 
-  }
-  
-  .footer-logo image {
+}
+
+.footer-logo image {
     margin-left: 30px;
     margin-right: 30px;
     align-items: center;
-  }
-  
-  #footer-slogan {
+}
+
+#footer-slogan {
     text-align: center;
     color: white;
     font-family: "Playfair Display", sans-serif;
     font-size: 15px;
-  }
-  
-  .footer-logo{
+}
+
+.footer-logo{
     display: grid;
     grid-template-columns: 10% 90%;
     width: auto;
     margin-right: 20px;
-  }
+}
   
   
 
