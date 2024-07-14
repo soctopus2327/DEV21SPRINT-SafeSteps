@@ -327,6 +327,12 @@ footer{
     background-color: antiquewhite;
   }
 
+#your-story-id{
+  height: 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 #googleform{
   margin: 50px;
   margin-left: 30%;
