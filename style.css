@@ -326,3 +326,9 @@ footer{
     box-shadow: 0px 4px 6px 0px antiquewhite;
     background-color: antiquewhite;
   }
+
+#googleform{
+  margin: 50px;
+  margin-left: 30%;
+  align-self: center;
+}
