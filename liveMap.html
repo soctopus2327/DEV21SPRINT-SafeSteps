@@ -1,8 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Bing Maps Highlight Areas</title>
+    <title>Live Map</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.PNG">
+    <link rel="stylesheet" href="style.css">
     <meta
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -17,20 +19,28 @@
       html,
       body,
       #myMap {
-        width: 100%;
+        width:98vw;
         height: 100%;
-        margin: 0;
-        padding: 0;
+        padding: 0px;
       }
       #searchBoxContainer {
         position: absolute;
-        top: 10px;
-        left: 7%;
+        top: 110px;
+        left: 150px;
         transform: translateX(-50%);
         z-index: 1000;
         background-color: white;
         padding: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        
+      }
+      #searchBox{
+        font-size: 10px;
+        width: 200px;
+      }
+      ::placeholder{
+        font-size: 10px;
+        text-align: left;
       }
     </style>
     <script type="text/javascript">
@@ -40,30 +50,53 @@
         map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
           credentials:
             "AmEPPp9aorMx868MhTtfUgkUcVcwAl-cj7Jcqjq1-lisfiXXTxe24auGsTzyVCot",
-          center: new Microsoft.Maps.Location(28.7041, 77.1025),
-          zoom: 12,
+          center: new Microsoft.Maps.Location(28.620, 77.258),//28.7041, 77.1025),
+          zoom: 13,
         });
 
         // Define the coordinates for the areas
         var areas = {
-          Seelampur: [
-            new Microsoft.Maps.Location(28.6739, 77.2759),
-            new Microsoft.Maps.Location(28.6714, 77.281),
-            new Microsoft.Maps.Location(28.6685, 77.2781),
-            new Microsoft.Maps.Location(28.6705, 77.2732),
-          ],
-          "Preet Vihar": [
-            new Microsoft.Maps.Location(28.6394, 77.29),
-            new Microsoft.Maps.Location(28.636, 77.2927),
-            new Microsoft.Maps.Location(28.6335, 77.2887),
-            new Microsoft.Maps.Location(28.637, 77.2857),
-          ],
-          Karkarduma: [
-            new Microsoft.Maps.Location(28.65, 77.305),
-            new Microsoft.Maps.Location(28.647, 77.309),
-            new Microsoft.Maps.Location(28.643, 77.305),
-            new Microsoft.Maps.Location(28.646, 77.301),
-          ],
+            Seelampur: [
+                new Microsoft.Maps.Location(28.6739, 77.2759),
+                new Microsoft.Maps.Location(28.6714, 77.281),
+                new Microsoft.Maps.Location(28.6685, 77.2781),
+                new Microsoft.Maps.Location(28.6705, 77.2732),
+            ],
+            "Preet Vihar": [
+                new Microsoft.Maps.Location(28.6394, 77.29),
+                new Microsoft.Maps.Location(28.636, 77.2927),
+                new Microsoft.Maps.Location(28.6335, 77.2887),
+                new Microsoft.Maps.Location(28.637, 77.2857),
+            ],
+            Karkarduma: [
+                new Microsoft.Maps.Location(28.65, 77.305),
+                new Microsoft.Maps.Location(28.647, 77.309),
+                new Microsoft.Maps.Location(28.643, 77.305),
+                new Microsoft.Maps.Location(28.646, 77.301),
+            ],
+            Shahdara: [
+                new Microsoft.Maps.Location(28.6259, 77.2797),
+                new Microsoft.Maps.Location(28.6224, 77.2842),
+                new Microsoft.Maps.Location(28.6198, 77.2803),
+            ],
+            "Laxmi Nagar": [
+                new Microsoft.Maps.Location(28.6125, 77.2532),
+                new Microsoft.Maps.Location(28.6158, 77.2507),
+                new Microsoft.Maps.Location(28.6092, 77.2489),
+                new Microsoft.Maps.Location(28.6115, 77.2454),
+            ],
+            "Mayur Vihar": [
+                new Microsoft.Maps.Location(28.6028, 77.2681),
+                new Microsoft.Maps.Location(28.6003, 77.2724),
+                new Microsoft.Maps.Location(28.5977, 77.2695),
+                new Microsoft.Maps.Location(28.6000, 77.2659),
+                new Microsoft.Maps.Location(28.6033, 77.2623), // Added an extra point for this area
+            ],
+            Jagatpuri: [
+                new Microsoft.Maps.Location(28.6308, 77.2627),
+                new Microsoft.Maps.Location(28.6283, 77.2670),
+                new Microsoft.Maps.Location(28.6257, 77.2639),
+            ],
         };
 
         // Function to determine the color based on some criteria
@@ -72,6 +105,10 @@
             Seelampur: 50,
             "Preet Vihar": 30,
             Karkarduma: 70,
+            Shahdara: 80,
+            "Laxmi Nagar": 60,
+            "Mayur Vihar": 40,
+            Jagatpuri: 90
           };
           var value = safetyData[area];
           if (value > 80) {
@@ -113,9 +150,39 @@
     </script>
   </head>
   <body onload="loadMapScenario();">
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a class="active" href="liveMap.html">Live Map</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <image id="logo" src="images/logo.PNG" width="40">
+    </div>
     <div id="searchBoxContainer">
       <input type="text" id="searchBox" placeholder="Search for a location" />
     </div>
     <div id="myMap"></div>
+
+    <footer height="50px">
+
+        <div class="footer-logo">
+            <img src="images/logo.PNG" width="40">
+            <div id="footer-slogan"><pre> Navigate New Delhi with Confidence: Safety, Awareness, Respect!</pre> </div>
+        </div>
+
+        <div class="icons">
+            <a href="https://x.com/home">
+                <img class="icon" src="images/twitter.png">    
+            </a>
+            <a href="https://www.instagram.com/">
+                <img class="icon" src="images/insta.png">
+                
+            </a>
+            <a href="https://www.linkedin.com/feed/">
+                <img class="icon" src="images/linkedin.png">  
+            </a>
+        
+        </div>
+
+    </footer>
   </body>
 </html>
