@@ -1,40 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Map</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="topnav">
-            <a href="index.html">Home</a>
-            <a class="active" href="#livemap">Live Map</a>
-            <a href="contact.html">Contact</a>
-            <a href="about.html">About</a>
-            <image id="logo" src="images/logo.PNG" width="40">
-        </div>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bing Maps Highlight Areas</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script
+      type="text/javascript"
+      src="https://www.bing.com/api/maps/mapcontrol?key=AmEPPp9aorMx868MhTtfUgkUcVcwAl-cj7Jcqjq1-lisfiXXTxe24auGsTzyVCot"
+      async
+      defer
+    ></script>
+    <style>
+      html,
+      body,
+      #myMap {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #searchBoxContainer {
+        position: absolute;
+        top: 10px;
+        left: 7%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background-color: white;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+    <script type="text/javascript">
+      var map, searchManager;
 
-    <footer height="50px">
+      function loadMapScenario() {
+        map = new Microsoft.Maps.Map(document.getElementById("myMap"), {
+          credentials:
+            "AmEPPp9aorMx868MhTtfUgkUcVcwAl-cj7Jcqjq1-lisfiXXTxe24auGsTzyVCot",
+          center: new Microsoft.Maps.Location(28.7041, 77.1025),
+          zoom: 12,
+        });
 
-        <div class="footer-logo">
-            <img src="images/logo.PNG" width="40">
-            <div id="footer-slogan"><pre> Navigate New Delhi with                                 Confidence:Safety,Awareness, Respect!</pre> </div>
-        </div>
+        // Define the coordinates for the areas
+        var areas = {
+          Seelampur: [
+            new Microsoft.Maps.Location(28.6739, 77.2759),
+            new Microsoft.Maps.Location(28.6714, 77.281),
+            new Microsoft.Maps.Location(28.6685, 77.2781),
+            new Microsoft.Maps.Location(28.6705, 77.2732),
+          ],
+          "Preet Vihar": [
+            new Microsoft.Maps.Location(28.6394, 77.29),
+            new Microsoft.Maps.Location(28.636, 77.2927),
+            new Microsoft.Maps.Location(28.6335, 77.2887),
+            new Microsoft.Maps.Location(28.637, 77.2857),
+          ],
+          Karkarduma: [
+            new Microsoft.Maps.Location(28.65, 77.305),
+            new Microsoft.Maps.Location(28.647, 77.309),
+            new Microsoft.Maps.Location(28.643, 77.305),
+            new Microsoft.Maps.Location(28.646, 77.301),
+          ],
+        };
 
-        <div class="icons">
-            <a href="https://x.com/home">
-            <img class="icon" src="images/twitter.png">    
-            </a>
-            <a href="https://www.instagram.com/">
-                <img class="icon" src="images/insta.png">
-            </a>
-            <a href="https://www.linkedin.com/feed/">
-                <img class="icon" src="images/linkedin.png">  
-            </a>
-        </div>
+        // Function to determine the color based on some criteria
+        function getColor(area) {
+          var safetyData = {
+            Seelampur: 50,
+            "Preet Vihar": 30,
+            Karkarduma: 70,
+          };
+          var value = safetyData[area];
+          if (value > 80) {
+            return "rgba(139,0,0,0.5)"; // darkred
+          } else if (value > 60) {
+            return "rgba(255,0,0,0.5)"; // red
+          } else if (value > 40) {
+            return "rgba(255,165,0,0.5)"; // orange
+          } else if (value > 20) {
+            return "rgba(255,255,0,0.5)"; // yellow
+          } else {
+            return "rgba(0,128,0,0.5)"; // green
+          }
+        }
 
-     </footer>
+        // Add polygons to the map
+        for (var area in areas) {
+          var polygon = new Microsoft.Maps.Polygon(areas[area], {
+            fillColor: getColor(area),
+            strokeColor: "blue",
+            strokeThickness: 2,
+          });
+          map.entities.push(polygon);
+        }
 
-</body>
+        // Add search box
+        Microsoft.Maps.loadModule("Microsoft.Maps.AutoSuggest", function () {
+          var manager = new Microsoft.Maps.AutosuggestManager({ map: map });
+          manager.attachAutosuggest(
+            "#searchBox",
+            "#searchBoxContainer",
+            function (suggestion) {
+              map.setView({ bounds: suggestion.bestView });
+              // You can add logic here to highlight the area based on the suggestion if needed
+            },
+          );
+        });
+      }
+    </script>
+  </head>
+  <body onload="loadMapScenario();">
+    <div id="searchBoxContainer">
+      <input type="text" id="searchBox" placeholder="Search for a location" />
+    </div>
+    <div id="myMap"></div>
+  </body>
 </html>
