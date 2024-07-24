@@ -1,6 +1,6 @@
 ![SafeSteps logo](https://github.com/soctopus2327/DEV21SPRINT-SafeSteps/blob/main/images/logo.PNG)
 
-Website Link: [https://soctopus2327.github.io/DEV21SPRINT-SafeSteps/](url)
+Website Link: [[https://soctopus2327.github.io/DEV21SPRINT-SafeSteps/](url)](https://soctopus2327.github.io/DEV21SPRINT-SafeSteps/)
 
 Presentation Link: [https://www.canva.com/design/DAGIwWyswUQ/nipRJ6W4I5ZJ5dAMeKON1Q/edit?utm_content=DAGIwWyswUQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](url)
 
